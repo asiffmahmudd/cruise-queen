@@ -75,7 +75,7 @@ document.getElementById("booking-btn").addEventListener("click", function(e){
 
     setValue("sub-total", "$0", true);
     setValue("vat", "$0", true);
-    setValue("total", "0$", true);
+    setValue("total", "$0", true);
 
     setValue("first-class", 0, false);
     setValue("economy-class", 0, false);
