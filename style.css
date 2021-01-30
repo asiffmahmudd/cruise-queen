@@ -118,6 +118,11 @@ nav ul li a:hover, a.active{
     font-weight: 500;
     background-color:  #E33741;
 }
+
+button.btn-style:hover{
+    cursor: pointer;
+}
+
 .amount{
     display: flex;
     justify-content: space-between;

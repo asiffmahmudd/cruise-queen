@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curise Booking</title>
+    <title>Cruise Booking</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
     <!-- Stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -39,16 +40,16 @@
             <h3>Book Ocean Time</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+                <input id="input-from" class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
             </div>
             <div class="input-group">
                 <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+                <input id="input-to" class="inp-style" type="text" name="" placeholder="New York, United States">
             </div>
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                    <input class="inp-style" type="date" name="" required>
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
@@ -58,7 +59,7 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input id="first-class" class="inp-style inp-width" min="0" value="0" type="number" name="">
+                    <input id="first-class" class="inp-style inp-width" onchange="ticketNumber(true, 'first-class')" min="0" value="0" type="number" name="">
                 </div>
                 <div class="plus-minus-btn">
                     <p><span onclick="ticketNumber(true, 'first-class')">+</span> <span onclick="ticketNumber(false, 'first-class')">-</span></p>
@@ -68,7 +69,7 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
-                    <input id="economy-class" class="inp-style inp-width" min="0" value="0" type="number" name="">
+                    <input id="economy-class" class="inp-style inp-width" onchange="ticketNumber(true, 'economy-class')" min="0" value="0" type="number" name="">
                 </div>
                 <div class="plus-minus-btn">
                     <p> <span onclick="ticketNumber(true,'economy-class')">+</span> <span onclick="ticketNumber(false, 'economy-class')">-</span> </p>
@@ -102,11 +103,55 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button type="submit" data-toggle="modal" onclick="modalView()" data-target="#exampleModal" id="booking-btn" class="btn-style">Book Now</button>
         </div>
     </main>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thank you for choosing us. Your booking has been confirmed</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <h5>Flying From: <span id="fly-from"></span></h5>
+                    </div>
+                    <div>
+                        <h5>Flying To: <span id="fly-to"></span></h5>
+                    </div><hr>
+                    <div>
+                        <h5>First Class Ticket: <span id="first-class-ticket"></span></h5>
+                    </div>
+                    <div>
+                        <h5>Economy Class Ticket: <span id="economy-class-ticket"></span></h5>
+                    </div>
+                    <div><hr>
+                        <h5>Subtotal: <span id="subtotal-cost"></span></h5>
+                    </div>
+                    <div>
+                        <h5>Vat: <span id="vat-cost"></span></h5>
+                    </div>
+                    <div>
+                        <h5>Total: <span id="total-cost"></span></h5>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!--Thank You-->
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 

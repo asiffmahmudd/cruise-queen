@@ -43,3 +43,28 @@ function calculateTotal(){
     setValue("vat", "$"+ vat, true);
     setValue("total", "$"+ total, true);
 }
+
+function modalView(){
+    let from, to, subTotal, total, vat, firstClass, economy;
+    from = document.getElementById("input-from").value;
+    if(from === "")
+        from =  document.getElementById("input-from").placeholder;
+    
+    to = document.getElementById("input-to").value;
+    if(to === "")
+        to =  document.getElementById("input-to").placeholder;
+    
+    firstClass = document.getElementById("first-class").value;  
+    economy = document.getElementById("economy-class").value;    
+    subTotal = document.getElementById("sub-total").innerText;
+    vat = document.getElementById("vat").innerText;
+    total = document.getElementById("total").innerText;
+
+    document.getElementById("fly-from").innerText = from;
+    document.getElementById("fly-to").innerText = to;
+    document.getElementById("first-class-ticket").innerText = firstClass;
+    document.getElementById("economy-class-ticket").innerText = economy;
+    document.getElementById("subtotal-cost").innerText = subTotal;
+    document.getElementById("vat-cost").innerText = vat;
+    document.getElementById("total-cost").innerText = total;
+}
