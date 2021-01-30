@@ -44,7 +44,12 @@ function calculateTotal(){
     setValue("total", "$"+ total, true);
 }
 
-function modalView(){
+document.getElementById("booking-btn").addEventListener("click", function(e){
+    if(document.getElementById("sub-total").textContent === "$0"){
+        alert("You have to buy at least one ticket");
+        e.stopPropagation();
+        return;
+    }
     let from, to, subTotal, total, vat, firstClass, economy;
     from = document.getElementById("input-from").value;
     if(from === "")
@@ -67,4 +72,9 @@ function modalView(){
     document.getElementById("subtotal-cost").innerText = subTotal;
     document.getElementById("vat-cost").innerText = vat;
     document.getElementById("total-cost").innerText = total;
+});
+
+function modalView(e){
+    console.log(e);
+    
 }
