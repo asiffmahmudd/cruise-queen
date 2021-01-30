@@ -72,6 +72,14 @@ document.getElementById("booking-btn").addEventListener("click", function(e){
     document.getElementById("subtotal-cost").innerText = subTotal;
     document.getElementById("vat-cost").innerText = vat;
     document.getElementById("total-cost").innerText = total;
+
+    setValue("sub-total", "$0", true);
+    setValue("vat", "$0", true);
+    setValue("total", "0$", true);
+
+    setValue("first-class", 0, false);
+    setValue("economy-class", 0, false);
+
 });
 
 function modalView(e){
